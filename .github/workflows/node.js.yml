@@ -21,22 +21,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Installing Dependecies
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
     - run: npm run build 
-    - run: ls
-    - run: ls ./build
     
     - name: Deploy to Server 1
       uses: easingthemes/ssh-deploy@main
       env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST_SERVER }}
-          REMOTE_USER: ${{ secrets.HOST_NAME }}
+          key: ${{ secrets.SSH_KEY }}
+          server: ${{ secrets.HOST_SERVER }}
+          username: ${{ secrets.HOST_NAME }}
           SOURCE: "build/"
           TARGET: "/home/ubuntu/build"
 
