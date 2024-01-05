@@ -32,9 +32,9 @@ jobs:
     - name: Deploy to Server 1
       uses: easingthemes/ssh-deploy@main
       env:
-          key: ${{ secrets.SSH_KEY }}
-          server: ${{ secrets.HOST_SERVER }}
-          username: ${{ secrets.HOST_NAME }}
+          sshPrivateKey: ${{ secrets.SSH_KEY }}
+          remoteHost: ${{ secrets.HOST_SERVER }}
+          remoteUser: ${{ secrets.HOST_NAME }}
           SOURCE: "build/"
           TARGET: "/home/ubuntu/build"
 
