@@ -30,3 +30,10 @@ jobs:
     - run: npm run build 
     - run: ls
     - run: ls ./build
+    
+    - name: Deploy to Server 1
+    - uses: easingthemes/ssh-deploy@main
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_SERVER }}
+          REMOTE_USER: ${{ secrets.HOST_NAME }}
