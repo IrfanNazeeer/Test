@@ -32,14 +32,14 @@ jobs:
     - run: ls ./build
     
     - name: Deploy to Server 1
-    - uses: easingthemes/ssh-deploy@main
+      uses: easingthemes/ssh-deploy@main
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
           REMOTE_HOST: ${{ secrets.HOST_SERVER }}
           REMOTE_USER: ${{ secrets.HOST_NAME }}
           
     - name: Executing remote ssh commands using ssh key
-    - uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@master
       with:
           host: ${{ secrets.HOST_SERVER }}
           username: ${{ secrets.HOST_NAME }}
