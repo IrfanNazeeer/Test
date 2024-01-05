@@ -26,9 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Install dependencies    
     - run: npm install
-    - name: Generating Build and Lisiting
     - run: npm run build 
     - run: ls
     - run: ls ./build
