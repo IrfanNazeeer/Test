@@ -1,0 +1,22 @@
+name: Deployment On Dev Environment
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  deploy:
+    name: Deploy To Dev Server
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check Node
+
+      - uses: azure/login@v1
+      - name: Azure login
+
+        
+      - uses: Azure/aks-set-context@v3
+      -  name: Get K8s context
