@@ -14,10 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Check Node
+        run: node -v
 
       - uses: azure/login@v1
       - name: Azure login
+        run: node -v
 
         
       - uses: Azure/aks-set-context@v3
-      -  name: Get K8s context
+      - name: Get K8s context
+        run: node -v
